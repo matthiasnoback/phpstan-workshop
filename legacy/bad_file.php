@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 use NonExistingClass;
 
-function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType) {
+function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType)
+{
     if ($thisHasNoType) {
         return true;
     }

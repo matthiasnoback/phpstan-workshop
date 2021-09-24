@@ -8,7 +8,10 @@ use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::PATHS, [__DIR__ . '/legacy', __DIR__ . '/src', __DIR__ . '/ecs.php']);
+    $parameters->set(
+        Option::PATHS,
+        [__DIR__ . '/legacy', __DIR__ . '/src', __DIR__ . '/ecs.php', __DIR__ . '/example.php']
+    );
 
     $containerConfigurator->import(SetList::CONTROL_STRUCTURES);
     $containerConfigurator->import(SetList::PSR_12);
