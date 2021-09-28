@@ -15,5 +15,3 @@
 - Run `bin/install`.
 
 Now run `bin/phpstan`. You should see a number of issues that we'll tackle during the workshop.
-
-To apply coding standards, run `bin/ecs`.
