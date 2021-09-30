@@ -5,10 +5,10 @@ parameters:
         - src
     tmpDir: %currentWorkingDirectory%/cache/phpstan
 
-#    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true
 
-#    ignoreErrors:
-#        - '#Call to sprintf contains#'
+    ignoreErrors:
+        - '#Call to sprintf contains#'
 
-#includes:
-#    - phpstan-baseline.neon
+includes:
+    - phpstan-baseline.neon

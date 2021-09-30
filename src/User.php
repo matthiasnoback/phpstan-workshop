@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Demo;
 
+use Assert\Assertion;
 use DateTimeImmutable;
 
 final class User
@@ -15,12 +16,24 @@ final class User
     ) {
     }
 
+    /**
+     * @param array<string,string|null> $record
+     */
     public static function fromDatabaseRecord(array $record): self
     {
+        $expiryDate = $record['expiry_date'];
+        if ($expiryDate !== null) {
+            $expiryDate = DateTimeImmutable::createFromFormat('Y-m-d', $expiryDate);
+            Assertion::isInstanceOf($expiryDate, DateTimeImmutable::class);
+        }
+
+        Assertion::notNull($record['username']);
+        Assertion::notNull($record['password']);
+
         return new self(
             $record['username'],
             $record['password'],
-            DateTimeImmutable::createFromFormat('Y-m-d', $record['expiry_date'])
+            $expiryDate
         );
     }
 

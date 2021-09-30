@@ -17,4 +17,9 @@ final class CouldNotAuthenticate extends RuntimeException
     {
         return new self(sprintf('The account of username "%s" has expired', $username));
     }
+
+    public static function becauseIncorrectPasswordWasProvided(): self
+    {
+        return new self();
+    }
 }
